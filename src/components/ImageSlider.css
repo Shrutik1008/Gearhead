@@ -1,6 +1,6 @@
 .slider-container {
-  width: 100vw; /* full screen width */
-  height: 100vh; /* you can change to a fixed height like 400px if needed */
+  width: 100%; /* fixed: use 100% instead of 100vw */
+  height: 100vh; /* or a fixed height like 400px if you want */
   margin: 0 auto;
   position: relative;
   overflow: hidden;
@@ -20,7 +20,7 @@
 }
 
 .slide {
-  min-width: 100vw;
+  min-width: 100%; /* fixed: use 100% instead of 100vw */
   height: 100%;
 }
 

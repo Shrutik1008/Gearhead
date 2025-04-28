@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import ImageSlider from "./components/ImageSlider";
-
+import CarsList from "./components/CarsList";
 
 function App() {
   return (
@@ -23,11 +23,13 @@ function App() {
         <div>
           <button className="btn three">Contact</button>
         </div>
-        {/* <div>
-          <button className="btn four">opacity</button>
-        </div> */}
       </section>
-      <ImageSlider />
+
+      {/* Main Content Section */}
+      <main className="content">
+        <ImageSlider />
+        <CarsList />
+      </main>
     </div>
   );
 }
