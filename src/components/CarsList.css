@@ -43,9 +43,18 @@
   padding: 1rem;
 }
 
+.car-info h3 {
+  font-size: 1.5rem;
+  margin: 0.5rem 0;
+}
 .car-model-heading {
   text-align: center;
   margin: 1rem 0;
   color: #fff;
   font-size: 1.5rem;
+}
+.car-model {
+  font-size: 1.2rem;
+  color: #ccc;
+  margin: 0.5rem 0;
 }
