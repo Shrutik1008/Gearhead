@@ -1,3 +1,4 @@
+// App.js
 import React from 'react';
 import './App.css';
 import ImageSlider from "./components/ImageSlider";
@@ -11,24 +12,20 @@ function App() {
       </div>
 
       <section className="section">
-        <div>
-          <button className="btn">Home</button>
-        </div>
-        <div>
-          <button className="btn one">Collection</button>
-        </div>
-        <div>
-          <button className="btn two">About</button>
-        </div>
-        <div>
-          <button className="btn three">Contact</button>
-        </div>
+        <div><button className="btn">Home</button></div>
+        <div><button className="btn one">Collection</button></div>
+        <div><button className="btn two">About</button></div>
+        <div><button className="btn three">Contact</button></div>
       </section>
 
-      {/* Main Content Section */}
       <main className="content">
         <ImageSlider />
-        <CarsList />
+
+        {/* Render multiple CarsList sections for different models */}
+        <CarsList model="corolla" />
+        <CarsList model="civic" />
+        <CarsList model="camry" />
+        <CarsList model="mustang" />
       </main>
     </div>
   );

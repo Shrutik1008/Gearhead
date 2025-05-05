@@ -1,17 +1,41 @@
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import './ImageSlider.css';
 
-const images = [
-  '/images/img1.jpg',
-  '/images/img2.jpg',
-  '/images/img3.jpg',
-  '/images/img4.jpg',
-  '/images/img5.jpg',
-  '/images/img6.jpg',
-];
-
 const ImageSlider = () => {
+  const [images, setImages] = useState([]);
   const [index, setIndex] = useState(0);
+
+  const fetchImages = async () => {
+    try {
+      const response = await axios.get('https://api.unsplash.com/search/photos', {
+        params: {
+          query: 'sports car',
+          per_page: 6,
+        },
+        headers: {
+          Authorization: 'Client-ID NJYYBmCvPeSLt9at4tAP9nMPddLJp6r5wrfbB49ZLk8', // <-- Replace this!
+        },
+      });
+
+      const imageUrls = response.data.results.map((img) => img.urls.regular);
+      setImages(imageUrls);
+    } catch (error) {
+      console.error('Error fetching slider images:', error);
+    }
+  };
+
+  useEffect(() => {
+    fetchImages();
+  }, []);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev + 1) % images.length);
+    }, 4000);
+
+    return () => clearInterval(timer);
+  }, [images]);
 
   const nextSlide = () => {
     setIndex((prev) => (prev + 1) % images.length);
@@ -20,15 +44,6 @@ const ImageSlider = () => {
   const prevSlide = () => {
     setIndex((prev) => (prev - 1 + images.length) % images.length);
   };
-
-  // Auto-slide every 4 seconds
-  useEffect(() => {
-    const timer = setInterval(() => {
-      nextSlide();
-    }, 4000);
-
-    return () => clearInterval(timer); // Clean up
-  }, []);
 
   return (
     <div className="slider-container">
