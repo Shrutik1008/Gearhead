@@ -26,7 +26,6 @@ function App() {
         <CarsList model="civic" />
         <CarsList model="camry" />
         <CarsList model="mustang" />
-        <CarsList model="innova" />
       </main>
     </div>
   );
