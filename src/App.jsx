@@ -5,6 +5,7 @@ import CarsList from "./components/CarsList";
 
 // List of car makes
 const carMakes = [
+  "Rolls-Royce",
   "Toyota",
   "Honda",
   "Ford",
@@ -22,14 +23,17 @@ const carMakes = [
   "Subaru",
   "Lexus",
   "Dodge",
-  "Ram",
-  "GMC",
+  "Aston Martin",
+  "Buick",
+  "Mini",
   "Volvo",
   "Porsche",
   "Ferrari",
   "Lamborghini",
-  "Jaguar",
-  "Land Rover"
+  "Land Rover",
+  "Bentley",
+  "McLaren",
+  "Bugatti"
 ];
 
 function App() {
