@@ -1,3 +1,4 @@
+/* Global Styles */
 body {
   margin: 0;
   padding: 0;
@@ -10,6 +11,7 @@ body {
   box-sizing: border-box;
 }
 
+/* Title Section */
 .title {
   margin: 0;
   padding: 20px 0;
@@ -18,8 +20,10 @@ body {
   font-weight: 800;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   letter-spacing: 2px;
+  color: #fff;
 }
 
+/* Navigation Section */
 .section {
   display: flex;
   justify-content: center;
@@ -83,39 +87,48 @@ div {
   transition: all 0.5s linear;
 }
 
+/* Main Content Section */
 .cars-section {
   margin-top: 60px;
   padding: 20px;
 }
 
-.dropdown-container {
-  text-align: center;
-  margin-bottom: 30px;
+/* Car Makes Buttons Section */
+.car-makes-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin: 20px 0;
 }
 
-.dropdown-container label {
-  font-size: 1.5rem;
-  margin-right: 10px;
-}
-
-.dropdown-container select {
-  padding: 10px;
-  font-size: 1.2rem;
+.car-make-button {
+  padding: 12px 25px;
+  background-color: #c50e0e;
+  border: none;
+  color: #fff;
+  font-size: 1.1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
   border-radius: 5px;
-  border: 2px solid #c50e0e;
-  background-color: black;
-  color: white;
 }
 
-.cars-container {
-  margin-top: 20px;
-  padding: 20px;
+.car-make-button:hover {
+  background-color: #271111;
+  transform: scale(1.1);
+}
+
+/* Car Models Section */
+.cars-list {
+  margin-top: 30px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 30px;
 }
 
-.company-block {
+.car-card {
   background-color: #111;
   padding: 20px;
   border-radius: 10px;
@@ -123,18 +136,64 @@ div {
   border: 1px solid #c50e0e;
 }
 
-.company-block h2 {
-  margin-bottom: 15px;
-  font-size: 1.8rem;
+.car-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.car-info {
+  margin-top: 15px;
+}
+
+.car-info h3 {
+  font-size: 1.6rem;
   color: #c50e0e;
 }
 
-.company-block ul {
-  list-style: none;
-  padding: 0;
+.car-info p {
+  font-size: 1.2rem;
+  color: #fff;
+  margin: 5px 0;
 }
 
-.company-block li {
-  font-size: 1.2rem;
-  margin: 5px 0;
+.car-info strong {
+  color: #c50e0e;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .section {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .car-make-button {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+
+  .car-info h3 {
+    font-size: 1.4rem;
+  }
+
+  .car-info p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .btn {
+    padding: 0.8em 1.5em;
+    font-size: 16px;
+  }
+
+  .car-make-button {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
 }

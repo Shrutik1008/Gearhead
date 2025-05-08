@@ -1,15 +1,16 @@
-// CarsList.js
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './CarsList.css';
 
-const CarsList = ({ model }) => {
+const CarsList = ({ make }) => {
   const [cars, setCars] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  // Fetch all car models for a specific make
   const fetchCars = async () => {
     try {
-      const response = await axios.get(`https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?model=${model}`, {
+      // Get car data for all models of a given make
+      const response = await axios.get(`https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?make=${make}`, {
         headers: {
           'x-rapidapi-key': 'bc763f9d22msh64e8be73ffeb3f3p107821jsnb01c0b4ea3ff',
           'x-rapidapi-host': 'cars-by-api-ninjas.p.rapidapi.com'
@@ -18,6 +19,7 @@ const CarsList = ({ model }) => {
 
       const carData = response.data;
 
+      // Add image for each car model
       const carsWithImages = await Promise.all(carData.map(async (car) => {
         const image = await fetchCarImage(car.make, car.model);
         return { ...car, image };
@@ -31,6 +33,7 @@ const CarsList = ({ model }) => {
     }
   };
 
+  // Fetch car image from Unsplash
   const fetchCarImage = async (make, model) => {
     try {
       const response = await axios.get(
@@ -51,17 +54,19 @@ const CarsList = ({ model }) => {
     }
   };
 
+  // Run fetchCars when the component is mounted
   useEffect(() => {
     fetchCars();
-  }, [model]);
+  }, [make]);
 
+  // Display a loading message while fetching data
   if (loading) {
-    return <div>Loading {model} cars...</div>;
+    return <div>Loading {make} cars...</div>;
   }
 
   return (
     <div className="cars-list">
-      <h2 className="car-model-heading">{model.toUpperCase()} Cars</h2>
+      <h2 className="car-model-heading">{make} Cars</h2>
       {cars.map((car, index) => (
         <div className="car-card" key={index}>
           <img src={car.image} alt={`${car.make} ${car.model}`} className="car-image" />
