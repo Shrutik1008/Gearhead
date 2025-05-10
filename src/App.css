@@ -2,9 +2,10 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: "Times New Roman"; 
-  background-color: rgb(0, 0, 0); 
-  color: #fff; 
+  font-family: "Times New Roman", serif;
+  background-color: #111;
+  color: #fff;
+  line-height: 1.6;
 }
 
 *, *::before, *::after {
@@ -14,13 +15,14 @@ body {
 /* Title Section */
 .title {
   margin: 0;
-  padding: 20px 0;
+  padding: 40px 0;
   text-align: center;
   font-size: 3rem;
   font-weight: 800;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   letter-spacing: 2px;
   color: #fff;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
 }
 
 /* Navigation Section */
@@ -46,15 +48,18 @@ div {
   cursor: pointer;
   font-size: 20px;
   text-transform: uppercase;
-  transition: all 0.5s linear;
+  transition: all 0.3s ease;
   color: #fff;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  position: relative; /* Needed for ::after effects */
+  position: relative;
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* Add shadow */
 }
 
 .btn:hover {
   background-color: #271111;
   scale: 1.1;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
 }
 
 .btn::after {
@@ -64,8 +69,9 @@ div {
   height: 100%;
   position: absolute;
   inset: 0;
-  transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
-  z-index: -1;    
+  transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+  z-index: -1;
+  border-radius: 8px;
 }
 
 .btn:hover::after {
@@ -74,7 +80,6 @@ div {
 
 .two::after {
   transform: translateX(-100%);
-  transition: all 0.5s ease;
   visibility: hidden;
 }
 
@@ -84,7 +89,7 @@ div {
 }
 
 .three::after {
-  transition: all 0.5s linear;
+  transition: all 0.3s linear;
 }
 
 /* Main Content Section */
@@ -134,6 +139,12 @@ div {
   border-radius: 10px;
   text-align: center;
   border: 1px solid #c50e0e;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.car-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
 }
 
 .car-card img {
