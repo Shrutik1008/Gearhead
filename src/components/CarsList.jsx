@@ -76,7 +76,7 @@ const CarsList = ({ make }) => {
 
   // Display a loading message while fetching data
   if (loading) {
-    return <div>Loading {make} cars...</div>;
+    return <div>Loading {make} Cars...</div>;
   }
 
   return (
