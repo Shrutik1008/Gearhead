@@ -59,7 +59,6 @@ const CarsList = ({ make }) => {
 
       const imageUrl = response.data.results[0]?.urls?.regular;
 
-      // Log the image URL you're getting from Unsplash
       console.log("Image URL: ", imageUrl);
 
       return imageUrl || 'https://via.placeholder.com/300';
