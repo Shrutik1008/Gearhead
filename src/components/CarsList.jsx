@@ -69,12 +69,10 @@ const CarsList = ({ make }) => {
     }
   };
 
-  // Run fetchCars when the component is mounted
   useEffect(() => {
     fetchCars();
   }, [make]);
 
-  // Display a loading message while fetching data
   if (loading) {
     return <div>Loading {make} Cars...</div>;
   }
