@@ -45,28 +45,27 @@ const CarsList = ({ make }) => {
   };
 
   // Fetch car image from Unsplash
-  const fetchCarImage = async (make, model) => {
-    try {
-      const response = await axios.get(
-        `https://api.unsplash.com/search/photos`,
-        {
-          params: { query: `${make} ${model}`, per_page: 1 },
-          headers: {
-            Authorization: `Client-ID NJYYBmCvPeSLt9at4tAP9nMPddLJp6r5wrfbB49ZLk8`,
-          },
-        }
-      );
+ const fetchCarImage = async (make, model) => {
+  try {
+    const response = await axios.get('https://api.pexels.com/v1/search', {
+      params: { query: `${make} ${model}`, per_page: 1 },
+      headers: {
+        Authorization: '4lQP4sRMpNAwLQgJXMHdohEy49Cxlp0lYMxpYBm8UK9exOXg1rStE1sM',
+      },
+    });
 
-      const imageUrl = response.data.results[0]?.urls?.regular;
+    // Pexels returns photos array
+    const imageUrl = response.data.photos[0]?.src?.medium;
 
-      console.log("Image URL: ", imageUrl);
+    console.log("Pexels Image URL: ", imageUrl);
 
-      return imageUrl || 'https://via.placeholder.com/300';
-    } catch (error) {
-      console.error('Unsplash image fetch failed:', error);
-      return 'https://via.placeholder.com/300';
-    }
-  };
+    return imageUrl || 'https://via.placeholder.com/300';
+  } catch (error) {
+    console.error('Pexels image fetch failed:', error);
+    return 'https://via.placeholder.com/300';
+  }
+};
+
 
   useEffect(() => {
     fetchCars();
