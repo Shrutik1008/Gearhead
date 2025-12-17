@@ -1,81 +1,38 @@
-import React, { useState } from 'react';
-import './App.css';
-import ImageSlider from "./components/ImageSlider";
-import CarsList from "./components/CarsList";
-
-// List of car makes
-const carMakes = [
-  "Rolls-Royce",
-  "Toyota",
-  "Honda",
-  "Ford",
-  "Chevrolet",
-  "BMW",
-  "Mercedes-Benz",
-  "Nissan",
-  "Hyundai",
-  "Kia",
-  "Volkswagen",
-  "Audi",
-  "Tesla",
-  "Jeep",
-  "Mazda",
-  "Subaru",
-  "Lexus",
-  "Dodge",
-  "Aston Martin",
-  "Buick",
-  "Mini",
-  "Volvo",
-  "Porsche",
-  "Ferrari",
-  "Lamborghini",
-  "Land Rover",
-  "Bentley",
-  "McLaren",
-  "Bugatti"
-];
+import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
+import Landing from "./pages/landing";
+import Collection from "./pages/Collection";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import "./App.css";
 
 function App() {
-  const [selectedMake, setSelectedMake] = useState(null);
-
-  const handleButtonClick = (make) => {
-    setSelectedMake(make); // Set the selected car make
-  };
-
   return (
-    <div className="App">
-      <div className="title">
-        <h2 align="center">Gear Head</h2>
+    <BrowserRouter>
+      <div className="App">
+        {/* HEADER */}
+        <header className="title">
+          <h2>Gear Head</h2>
+        </header>
+
+        {/* NAVIGATION */}
+        <nav className="section">
+          <NavLink className="btn" to="/">Home</NavLink>
+          <NavLink className="btn" to="/collection">Collection</NavLink>
+          <NavLink className="btn" to="/about">About</NavLink>
+          <NavLink className="btn" to="/contact">Contact</NavLink>
+        </nav>
+
+        {/* ROUTES */}
+        <main className="content">
+          <Routes>
+            <Route path="/" element={<Landing />} />
+            <Route path="/collection" element={<Collection />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </main>
       </div>
-
-      <section className="section">
-        <div><button className="btn">Home</button></div>
-        <div><button className="btn one">Collection</button></div>
-        <div><button className="btn two">About</button></div>
-        <div><button className="btn three">Contact</button></div>
-      </section>
-
-      <main className="content">
-        <ImageSlider />
-
-        {/* Display car makes as buttons */}
-        <div className="car-makes-buttons">
-          {carMakes.map((make, index) => (
-            <button 
-              key={index} 
-              className="car-make-button" 
-              onClick={() => handleButtonClick(make)}
-            >
-              {make}
-            </button>
-          ))}
-        </div>
-
-        {/* Display car models of the selected make */}
-        {selectedMake && <CarsList make={selectedMake} />}
-      </main>
-    </div>
+    </BrowserRouter>
   );
 }
 
