@@ -11,7 +11,7 @@ function App() {
       <div className="App">
         {/* HEADER */}
         <header className="title">
-          <h2>Gear Head</h2>
+          <h2><span>Gear</span> Head</h2>
         </header>
 
         {/* NAVIGATION */}
