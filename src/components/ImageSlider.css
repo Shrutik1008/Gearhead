@@ -1,7 +1,7 @@
 /* Container for the entire slider */
 .slider-container {
   width: 100%; /* Full width */
-  height: 100vh; /* Full viewport height */
+  height: clamp(50vh, 50vh, 80vh);
   margin: 0 auto;
   position: relative;
   overflow: hidden; /* Ensure no overflow of content */
@@ -43,6 +43,17 @@
   transform: scale(1.1); /* Slight zoom on hover */
   filter: brightness(0.9); /* Darken image slightly */
 }
+
+.slider-loader,
+.slider-error {
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: #ccc;
+}
+
 
 /* Navigation arrows */
 .arrow {

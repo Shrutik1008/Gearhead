@@ -1,17 +1,17 @@
 .cars-list {
-  display: flex;
-  flex-wrap: nowrap;              /* Prevent wrapping to next line */
-  overflow-x: auto;               /* Enable horizontal scroll */
-  padding: 2rem 1rem;
-  gap: 2rem;
-  scroll-behavior: smooth;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  padding: 1.5rem;
 }
 
 .car-card {
   background: #1e1e1e;
   border-radius: 10px;
   overflow: hidden;
-  width: 280px;
+  width: 100%;
+  max-width: 350px;
+  margin: auto;
   flex: 0 0 auto;                 /* Keep fixed width */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
   color: #fff;
@@ -57,4 +57,16 @@
   font-size: 1.2rem;
   color: #ccc;
   margin: 0.5rem 0;
+}
+
+.loading,
+.error {
+  text-align: center;
+  font-size: 1.2rem;
+  margin: 2rem 0;
+  color: #ccc;
+}
+
+.error {
+  color: #ff4d4d;
 }
